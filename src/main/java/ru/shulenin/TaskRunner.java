@@ -13,17 +13,22 @@ public class TaskRunner {
 
         Container<String> container2 = new Container<>();
 
-        container2.insert("My", 0);
-        container2.insert("Container", 1);
+        try {
+            container2.insert("My", 0);
+            container2.insert("Container", 1);
 
-        for (String str : container2) {
-            System.out.print(str);
+            for (String str : container2) {
+                System.out.print(str);
+            }
+
+            System.out.println();
+
+            for (int i = 0; i < 2; ++i) {
+                System.out.print(container2.at(i));
+            }
         }
-
-        System.out.println();
-
-        for (int i = 0; i < 2; ++i) {
-            System.out.print(container2.at(i));
+        catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
